@@ -65,6 +65,7 @@ class Article
 
     public function getContenu(): ?string
     {
+
         return $this->Contenu;
     }
 
@@ -123,8 +124,17 @@ class Article
         return $this;
     }
 
-    public function returnCaractere($contenue)
-    {      
-      substr($contenue, 50);
+    public function returnCaractere()
+    {
+      return substr($this->Contenu, 0, 50);
+    }
+
+    public function replaceCaractere()
+    {
+      $insultes = ["php"];
+      $remplace = "*";
+
+      return str_replace($insulte, $remplace, $this->Contenu);
+
     }
 }
