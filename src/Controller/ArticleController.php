@@ -6,6 +6,7 @@ use App\Entity\Article;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Appp\Repository\ArticleRepository;
 
 class ArticleController extends AbstractController{
 
@@ -46,18 +47,24 @@ class ArticleController extends AbstractController{
  */
   public function show()
   {
-      $repository = $this->getDoctrine()->getRepository(Article::class);
-          $articles = $repository->findBy(
-            array(),
-            array('id' => 'ASC'),
-            3,
-            0
-          );
+    $repository = $this->getDoctrine()->getRepository(Article::class);
+    $contenu = $repository->getContenu();
 
-          var_dump($articles);
-          return $this->render('article/index.html.twig', [
-              'articles' => $articles
-          ]);
+    var_dump($contenu);
+
+    return new Response();
+      // $repository = $this->getDoctrine()->getRepository(Article::class);
+      //     $articles = $repository->findBy(
+      //       array(),
+      //       array('id' => 'ASC'),
+      //       3,
+      //       0
+      //     );
+      //
+      //     var_dump($articles);
+      //     return $this->render('article/index.html.twig', [
+      //         'articles' => $articles
+      //     ]);
     }
 }
 

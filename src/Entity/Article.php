@@ -128,13 +128,4 @@ class Article
     {
       return substr($this->Contenu, 0, 50);
     }
-
-    public function replaceCaractere()
-    {
-      $insultes = ["php"];
-      $remplace = "*";
-
-      return str_replace($insulte, $remplace, $this->Contenu);
-
-    }
 }
